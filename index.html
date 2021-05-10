@@ -12,6 +12,7 @@
   <div id="app">
     <template>
         <v-app id="inspire">
+            <!-- Navbar with the Aviatur's logo-->
             <v-app-bar
             app
             color="#0D47A1"
@@ -29,11 +30,13 @@
                 <v-col
                     cols="3"
                 >
+                <!-- left menu with the hotel and stars search-->
                 <v-sheet rounded="lg" elevation="10" class="left-menu">
                     <v-list color="white">
                       <v-list-item>
                         <v-list-item-content>
                           <v-list-item-title>
+                              <!-- Hotel search by input info -->
                             <img class="title-icon" src="recursos/assets/icons/filters/search.svg">Nombre del Hotel
                           </v-list-item-title>
                         </v-list-item-content>
@@ -41,11 +44,11 @@
       
                       <v-divider class="my-2"></v-divider>
 
-                      {{ hotelSearch }}
                       <v-list-item>
                         <v-list-item-content>
                           <v-list-item-title class="input-search">
                             <img class="search-icon" src="recursos/assets/icons/amenities/restaurant.svg">
+                            <!-- Hotel search input -->
                             <v-text-field
                             v-model="hotelSearch"
                             label="Nombre del Hotel"
@@ -61,6 +64,7 @@
                          <v-list-item>
                             <v-list-item-content>
                               <v-list-item-title>
+                                  <!-- Hotel search by number of stars-->
                                 <img class="title-icon" src="recursos/assets/icons/filters/star.svg">Estrellas
                               </v-list-item-title>
                             </v-list-item-content>
@@ -68,10 +72,10 @@
                           
                           <v-divider class="my-2"></v-divider>
 
-                          {{ selected }}
                           <v-list-item>
                             <v-list-item-content>
                               <v-list-item-title>
+                                  <!-- checkbox with the number of the stars-->
                                 <v-icon class="title-icon" color="#0D47A1">fas fa-check</v-icon>Todas las Estrellas                              
                               </v-list-item-title>
                               <v-list-item-title>
@@ -97,6 +101,7 @@
                 :key="hotel.id"
                 class="card-style"
               >
+              <!-- Hotel information -->
               <v-row class="row-margin">
                   <v-col cols="4">
                     <v-img
@@ -112,10 +117,12 @@
                   
                       <v-card-text class="text--primary">
                         <div>
+                            <!-- Shows the number of stars with a for loop-->
                             <span v-for="item in hotel.stars">⭐</span>
                         </div>
                   
                         <div class="amenities">
+                            <!-- amenities icons -->
                             <v-img
                             class="amenities-item"
                             v-for="item in hotel.amenities"
