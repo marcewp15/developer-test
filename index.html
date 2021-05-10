@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <template>
+        <v-app id="inspire">
+            <v-app-bar
+            app
+            color="#0D47A1"
+            flat
+          >
+          <img class="size-banner" src="recursos/assets/images/logo-aviatur.svg">
+          </v-app-bar>
+        
+            <v-main>
+            <v-container
+                class="py-8 px-6"
+                fluid
+            >
+                <v-row>
+                <v-col
+                    cols="3"
+                >
+                <v-sheet rounded="lg" elevation="10" class="left-menu">
+                    <v-list color="white">
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-title>
+                            <img class="title-icon" src="recursos/assets/icons/filters/search.svg">Nombre del Hotel
+                          </v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+      
+                      <v-divider class="my-2"></v-divider>
+
+                      {{ hotelSearch }}
+                      <v-list-item>
+                        <v-list-item-content>
+                          <v-list-item-title class="input-search">
+                            <img class="search-icon" src="recursos/assets/icons/amenities/restaurant.svg">
+                            <v-text-field
+                            v-model="hotelSearch"
+                            label="Nombre del Hotel"
+                            hide-details="auto"
+                            @input="updateSearch"
+                            ></v-text-field>
+                          </v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+
+                      <v-divider class="my-2"></v-divider>
+
+                         <v-list-item>
+                            <v-list-item-content>
+                              <v-list-item-title>
+                                <img class="title-icon" src="recursos/assets/icons/filters/star.svg">Estrellas
+                              </v-list-item-title>
+                            </v-list-item-content>
+                          </v-list-item>
+                          
+                          <v-divider class="my-2"></v-divider>
+
+                          {{ selected }}
+                          <v-list-item>
+                            <v-list-item-content>
+                              <v-list-item-title>
+                                <v-icon class="title-icon" color="#0D47A1">fas fa-check</v-icon>Todas las Estrellas                              
+                              </v-list-item-title>
+                              <v-list-item-title>
+                                <v-checkbox
+                                class="checkbox"
+                                v-for="(item, index) in stars"
+                                v-model="selected"
+                                :label="item.name"
+                                :value="item.id"
+                                @change="starsSelected"
+                                ></v-checkbox>
+                              </v-list-item-title>
+                            </v-list-item-content>
+                          </v-list-item>
+                    </v-list>
+                  </v-sheet>
+            </v-col>
+                <v-col
+                    cols="9"
+                >
+            <v-card
+                v-for="hotel in hotelFilters"
+                :key="hotel.id"
+                class="card-style"
+              >
+              <v-row class="row-margin">
+                  <v-col cols="4">
+                    <v-img
+                    height="200px"
+                    :src="`./recursos/assets/images/hotels/${hotel.image}`"
+                  >
+                  </v-img>
+                  </v-col>
+                  <v-col cols="4">
+                    <v-card-subtitle class="hotel-name">
+                        {{ hotel.name }}
+                      </v-card-subtitle>
+                  
+                      <v-card-text class="text--primary">
+                        <div>
+                            <span v-for="item in hotel.stars">⭐</span>
+                        </div>
+                  
+                        <div class="amenities">
+                            <v-img
+                            class="amenities-item"
+                            v-for="item in hotel.amenities"
+                            :src="`./recursos/assets/icons/amenities/${item}.svg`"
+                            max-height="16px"
+                            max-width="16px"></v-img>
+                        </div>
+                      </v-card-text>      
+                  </v-col>
+
+                  <v-col class="divisor" cols="4">
+                      <v-card-text>Precio por noche por habitación</v-card-text>
+                      <v-card-text class="prices">ARS <b>{{ Math.round(hotel.price).toLocaleString('en-EN') }}</b></v-card-text>
+                    <v-card-actions>
+                        <v-btn
+                        color="primary"
+                        elevation="2"
+                        large
+                        >VER HOTEL</v-btn>
+                      </v-card-actions>
+                  </v-col>
+              </v-row>
+                  
+            </v-card>
+                </v-col>
+                </v-row>
+            </v-container>
+            </v-main>
+        </v-app>
+    </template>
+  </div>               
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

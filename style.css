@@ -1,0 +1,62 @@
+.size-banner {
+    height: 40px;
+}
+
+.left-menu {
+    position: sticky;
+    top: 70px;
+}
+
+.title-icon, 
+.search-icon {
+    height: 1rem;
+    padding-right: 1rem;
+}
+
+.search-icon {
+    margin-top: 1.5rem;
+}
+
+.input-search {
+    display: flex;
+}
+
+.checkbox {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.checkbox:first-child {
+    margin-top: 1rem;
+}
+
+.card-style {
+    margin-top: 2rem;
+}
+
+.row-margin {
+    margin: 1rem;
+}
+
+.hotel-name {
+    color: #0D47A1 !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.amenities {
+    display: flex;
+}
+
+.amenities-item {
+    margin: 1rem 1rem 0 0;
+}
+
+.divisor {
+    border-left: 1px solid #ECEFF1;
+}
+
+.prices {
+    color: orange;
+    font-size: 25px;
+}
