@@ -1,5 +1,5 @@
 # AVIATUR developer-test
-![aviatur](https://ibb.co/L8V7WNL)
+[![readme.png](https://i.postimg.cc/FzfLmRrW/readme.png)](https://postimg.cc/fSNLfM0m)
 Maquetación de una página de resultado de hoteles (solo mobile y desktop). Consumo de la API desarrollada, implementando las funcionalidades necesarias para listar y filtrar los hoteles.
 
 ## Instalación
